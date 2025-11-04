@@ -41,6 +41,13 @@ namespace EAFIT_BaseDeDatos.UI
 
         }
 
+        private void PBHorarios_Click(object sender, EventArgs e)
+        {
+            Horarios FrmHorarios = new Horarios(InstanciaPpal);
+            FrmHorarios.Show();
+            this.Close();
+        }
+
         private void PBConfig_Click(object sender, EventArgs e)
         {
             Configuracion FrmConfiguracion = new Configuracion(InstanciaPpal);
