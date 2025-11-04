@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -25,7 +25,7 @@ namespace EAFIT_BaseDeDatos.Core.EAFIT_BROKER
         {
             Connection = InsConnection.OpenConnection();
             MySqlCommand transacLogeo = new MySqlCommand();
-            transacLogeo.CommandText = string.Format("Select Password   from users where UserApps = '{0}' ", usuario);
+            transacLogeo.CommandText = string.Format("Select numero_documento from Personas where email = '{0}' ", usuario);
             transacLogeo.Connection = Connection;
             List<string> ReturnLogin = new List<string>();
             //Dictionary<string, string>  = new Dictionary<string, string>();
