@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,8 +22,8 @@ namespace EAFIT_BaseDeDatos.Core.EAFIT_BROKER
 
                 string StringConnection = string.Empty;//Environment.GetEnvironmentVariable("Conexion");//"server=127.0.0.1;uid=root;pwd=12345678;database=BaseDeDatos";
                 //StringConnection = Environment.GetEnvironmentVariable("Connection");
-                //StringConnection = "server=127.0.0.1;uid=root;pwd=12345678;database=BaseDeDatos";
-                StringConnection = "cwBlAHIAdgBlAHIAPQAxADIANwAuADAALgAwAC4AMQA7AHUAaQBkAD0AcgBvAG8AdAA7AHAAdwBkAD0AMQAyADMANAA1ADYANwA4ADsAZABhAHQAYQBiAGEAcwBlAD0AQgBhAHMAZQBEAGUARABhAHQAbwBzAA==";
+                //StringConnection = "server=127.0.0.1;uid=root;pwd=12345678;database=proyecto";
+                StringConnection = "cwBlAHIAdgBlAHIAPQAxADIANwAuADAALgAwAC4AMQA7AHUAaQBkAD0AcgBvAG8AdAA7AHAAdwBkAD0AMQAyADMANAA1ADYANwA4ADsAZABhAHQAYQBiAGEAcwBlAD0AcAByAG8AeQBlAGMAdABvAA==";
                 if (!string.IsNullOrEmpty(StringConnection))
                     StringConnection = DesEncriptar(StringConnection);
                 con = new MySqlConnection(StringConnection);
