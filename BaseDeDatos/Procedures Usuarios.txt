@@ -1,0 +1,106 @@
+DELIMITER $$
+
+CREATE PROCEDURE InsertarPersona(
+    IN p_Tipo_Documento VARCHAR(20),
+    IN p_Numero_Documento VARCHAR(20),
+    IN p_Nombres VARCHAR(80),
+    IN p_Apellidos VARCHAR(80),
+    IN p_Email VARCHAR(100),
+    IN p_Telefono VARCHAR(20),
+    IN p_Direccion VARCHAR(100),
+    IN p_Fecha_Nacimiento DATE,
+    IN p_Genero VARCHAR(20),
+    IN p_Fecha_Vinculacion DATE,
+    IN p_Cargo VARCHAR(50),
+    IN p_Salario DECIMAL(10,2),
+    IN p_Semestre INT,
+    IN p_Carrera_Id INT,
+    IN p_Pensum_Id INT,
+    IN p_Estado INT,
+    OUT p_NuevoId INT
+)
+BEGIN
+    INSERT INTO Personas(
+        tipo_documento,
+        numero_documento,
+        nombres,
+        apellidos,
+        email,
+        telefono,
+        direccion,
+        fecha_nacimiento,
+        genero,
+        fecha_vinculacion,
+        cargo,
+        salario,
+        semestre,
+        carrera_id_carrera,
+        pensum_id_pensum,
+        estados_id_estado
+    ) VALUES (
+        p_Tipo_Documento,
+        p_Numero_Documento,
+        p_Nombres,
+        p_Apellidos,
+        p_Email,
+        p_Telefono,
+        p_Direccion,
+        p_Fecha_Nacimiento,
+        p_Genero,
+        p_Fecha_Vinculacion,
+        p_Cargo,
+        p_Salario,
+        p_Semestre,
+        p_Carrera_Id,
+        p_Pensum_Id,
+        p_Estado
+    );
+
+    SET p_NuevoId = LAST_INSERT_ID();
+END$$
+
+
+DELIMITER $$
+
+CREATE PROCEDURE ActualizarUsuario(
+    IN p_id_persona INT,
+    IN p_tipo_documento VARCHAR(20),
+    IN p_numero_documento VARCHAR(20),
+    IN p_nombres VARCHAR(80),
+    IN p_apellidos VARCHAR(80),
+    IN p_email VARCHAR(100),
+    IN p_telefono VARCHAR(20),
+    IN p_direccion VARCHAR(100),
+    IN p_fecha_nacimiento DATE,
+    IN p_genero VARCHAR(20),
+    IN p_fecha_vinculacion DATE,
+    IN p_cargo VARCHAR(50),
+    IN p_salario DECIMAL(10,2),
+    IN p_semestre INT,
+    IN p_carrera_id INT,
+    IN p_pensum_id INT,
+    IN p_estado INT
+)
+BEGIN
+    UPDATE personas
+    SET 
+        tipo_documento = p_tipo_documento,
+        numero_documento = p_numero_documento,
+        nombres = p_nombres,
+        apellidos = p_apellidos,
+        email = p_email,
+        telefono = p_telefono,
+        direccion = p_direccion,
+        fecha_nacimiento = p_fecha_nacimiento,
+        genero = p_genero,
+        fecha_vinculacion = p_fecha_vinculacion,
+        cargo = p_cargo,
+        salario = p_salario,
+        semestre = p_semestre,
+        carrera_id_carrera = p_carrera_id,
+        pensum_id_pensum = p_pensum_id,
+        estados_id_estado = p_estado
+    WHERE id_persona = p_id_persona;
+END $$
+
+DELIMITER ;
