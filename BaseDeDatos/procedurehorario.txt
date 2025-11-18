@@ -1,0 +1,48 @@
+DELIMITER $$
+
+CREATE PROCEDURE InsertarHorario(
+    IN p_curso_id_curso INT,
+    IN p_salon_id_salon INT,
+    IN p_dia_semana VARCHAR(20),
+    IN p_hora_inicio TIME,
+    IN p_hora_fin TIME
+)
+BEGIN
+    INSERT INTO Horarios ( curso_id_curso, salon_id_salon, dia_semana, hora_inicio, hora_fin)
+    VALUES ( p_curso_id_curso, p_salon_id_salon, p_dia_semana, p_hora_inicio, p_hora_fin);
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ActualizarHorario(
+    IN p_id_horario INT,
+    IN p_curso_id_curso INT,
+    IN p_salon_id_salon INT,
+    IN p_dia_semana VARCHAR(20),
+    IN p_hora_inicio TIME,
+    IN p_hora_fin TIME
+)
+BEGIN
+    UPDATE Horarios
+    SET curso_id_curso = p_curso_id_curso,
+        salon_id_salon = p_salon_id_salon,
+        dia_semana = p_dia_semana,
+        hora_inicio = p_hora_inicio,
+        hora_fin = p_hora_fin
+    WHERE id_horario = p_id_horario;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE EliminarHorario(
+    IN p_id_horario INT
+)
+BEGIN
+    DELETE FROM Horarios WHERE id_horario = p_id_horario;
+END$$
+
+DELIMITER ;
